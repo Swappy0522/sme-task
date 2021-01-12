@@ -1,0 +1,96 @@
+<app-navbar></app-navbar>
+<div class="container" style="margin-top: 45px">
+  <div class="row">
+    <div class="col-md-4">
+      <form class="form-horizontal" [formGroup]="form" (submit)="onSaveEvent()">
+        <div class="form-group">
+          <label for="inputCourse" class="col-lg-6 control-label"
+            >Member Name</label
+          >
+          <div class="col-lg-12">
+            <input
+              class="form-control"
+              formControlName="MemberName"
+              type="text"
+              placeholder="Member Name"
+              required
+            />
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="textArea" class="col-lg-6 control-label"
+            >Member Description</label
+          >
+          <div class="col-lg-12">
+            <textarea
+              class="form-control"
+              rows="3"
+              formControlName="MemberDescription"
+              type="text"
+              placeholder="Member Description"
+            ></textarea>
+          </div>
+        </div>
+        <br />
+        <!-- <div class="form-group">
+          <label for="textArea" class="col-lg-6 control-label">Is Active</label>
+          <div class="col-lg-12">
+            <div class="checkbox">
+              <mat-slide-toggle (change)="onChange($event)"
+                >Slide me!</mat-slide-toggle
+              >
+            </div>
+          </div>
+        </div>
+        <br /> -->
+
+        <div class="form-group">
+          <div class="col-lg-8 col-lg-offset-4">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <span style="margin: 10px"></span>
+            <button type="reset" class="btn btn-danger">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-8">
+      <div class="clsGrid">
+        <table class="table table-striped">
+          <thead>
+            <th>Member Name</th>
+            <th>Member Desc</th>
+            <th>Active</th>
+            <th>Edit</th>
+            <!-- <th></th> -->
+          </thead>
+          <tr *ngFor="let itmes of CategoryList">
+            <td>{{ itmes.MemberName }}</td>
+            <td>{{ itmes.MemberDescription }}</td>
+            <td>
+              <mat-slide-toggle
+                [checked]="itmes.IsActive"
+                (change)="onChange($event, itmes._id)"
+              ></mat-slide-toggle>
+            </td>
+            <td>
+              <i
+                class="fa fa-pencil-square-o"
+                aria-hidden="true"
+                (click)="onEdit(itmes._id)"
+              ></i>
+            </td>
+            <!-- <td>
+            <i
+              class="fa fa-trash"
+              aria-hidden="true"
+              (click)="onDelete(itmes._id)"
+            ></i>
+          </td> -->
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

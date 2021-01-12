@@ -1,0 +1,81 @@
+<!-- ======= Top Bar ======= -->
+<div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+  <div class="container d-flex">
+    <div class="social-links">
+      <a href="https://twitter.com/" class="twitter"
+        ><i class="fa fa-twitter"></i
+      ></a>
+      <a href="https://www.facebook.com/" class="facebook"
+        ><i class="fa fa-facebook"></i
+      ></a>
+      <a href="https://www.instagram.com/" class="instagram"
+        ><i class="fa fa-instagram"></i
+      ></a>
+      <a href="https://www.skype.com/en/" class="google-plus"
+        ><i class="fa fa-skype"></i
+      ></a>
+      <a
+        href="https://www.linkedin.com/home/?originalSubdomain=in"
+        class="linkedin"
+        ><i class="fa fa-linkedin"></i
+      ></a>
+    </div>
+    <div class="contact-info mr-auto">
+      <i class="icofont-envelope"></i>
+      <a href="mailto:contact@example.com">contact@example.com</a>
+      <i class="icofont-phone"></i> +1 5589 55488 55
+    </div>
+  </div>
+</div>
+<button type="button" class="mobile-nav-toggle d-lg-none">
+  <i class="icofont-navigation-menu fa fa-bars"></i>
+</button>
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">
+    <h1 class="logo mr-auto">
+      <a href="index.html">SME<span>.</span></a>
+    </h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
+
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li class="active"><a href="index.html">Home</a></li>
+        <li>
+          <a href="aboutus">About Us</a>
+          <!-- <ul>
+            <li><a href="#">Drop Down 1</a></li>
+            <li><a href="#">Drop Down 2</a></li>
+          </ul> -->
+        </li>
+        <li><a href="board">Board</a></li>
+        <li><a href="Services">Services</a></li>
+        <li><a href="trend">Trend</a></li>
+        <li class="drop-down">
+          <a href="">Events</a>
+          <ul>
+            <li><a href="Events1">Events 1</a></li>
+
+            <li><a href="Events2">Events 2</a></li>
+          </ul>
+        </li>
+        <li><a href="gallary">Gallery</a></li>
+      </ul>
+      <div class="dvSearch">
+        <div class="clsSearchPanel">
+          <input
+            type="text"
+            class="clsSearch"
+            #box
+            placeholder="Product title, brand etc."
+            (keyup.enter)="search(box.value)"
+          />
+          <button type="button" (click)="search(box.value)">Search</button>
+        </div>
+      </div>
+    </nav>
+    <!-- .nav-menu -->
+  </div>
+</header>
+<!-- End Header -->

@@ -1,0 +1,40 @@
+input.clsSearch {
+  padding: 0 10px;
+  /* margin-top: 10px; */
+  width: 85%;
+  border: 0;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+  outline: none;
+}
+.dvSearch {
+  padding-left: 30px;
+}
+.clsSearchPanel button {
+  border-radius: 20px;
+  width: 15%;
+}
+
+.clsSearchPanel {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+}
+
+@media (min-width: 440px) {
+  .contact-info.mr-auto,
+  .mx-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .clsSlider {
+    margin-top: 50px;
+  }
+}

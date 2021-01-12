@@ -1,0 +1,9 @@
+.clsSlider {
+  margin-top: 100px;
+}
+
+@media (max-width: 440px) {
+  .clsSlider {
+    margin-top: 50px;
+  }
+}
