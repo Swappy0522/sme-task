@@ -1,0 +1,14 @@
+<app-menu></app-menu>
+<div class="clsContent container">
+  <div *ngIf="PostList?.length == 0">
+    <div class="noRes">No Results found for "{{ searchText }}"</div>
+  </div>
+  <div *ngIf="PostList?.length > 0">
+    <div>Results of "{{ searchText }}"</div>
+    <div class="clsPosts" *ngFor="let itmes of PostList">
+      <div class="clsPostName">{{ itmes.PostsName }}</div>
+      <div class="clsPostDesc">{{ itmes.PostsDescription }}</div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

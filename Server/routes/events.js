@@ -6,7 +6,7 @@ router.post("/addEvent", eventsController.insertEvent);
 
 router.get("", eventsController.getAllEvent);
 
-// router.get("/getActiveBlogs", eventsController.getActiveBlog);
+router.get("/getActiveEvents", eventsController.getActiveEvents);
 
 // router.get("/getMostViewedBlog", eventsController.getMostViewedBlog);
 

@@ -1,3 +1,4 @@
+const { ConnectionStates } = require("mongoose");
 const PostsData = require("../models/posts");
 
 exports.insertPosts = (req, res, next) => {
@@ -122,8 +123,8 @@ exports.getSinglePosts = (req, res, next) => {
   });
 };
 
-exports.getActiveBlog = (req, res, next) => {
-  const blogData = BlogData.find({ IsActive: true }).sort({ WhenEntered: -1 });
+exports.getActivePosts = (req, res, next) => {
+  const blogData = PostsData.find({ IsActive: true }).sort({ WhenEntered: -1 });
   const pageSize = +req.query.pagesize;
   const currentPage = +req.query.currentpage;
   if (pageSize && currentPage) {
@@ -134,12 +135,12 @@ exports.getActiveBlog = (req, res, next) => {
     .populate("CityID")
     .then((documents) => {
       fetchedData = documents;
-      return BlogData.find({ IsActive: true }).countDocuments();
+      return PostsData.find({ IsActive: true }).countDocuments();
     })
     .then((count) => {
       res.status(200).json({
         message: "Blogs fetched successfully!",
-        blogData: fetchedData,
+        Data: fetchedData,
         maxData: count,
       });
     })
@@ -176,4 +177,30 @@ exports.updateStatus = (req, res, next) => {
         message: "Couldn't udpate post!",
       });
     });
+};
+
+exports.searchComponentsByProject = (req, res, next) => {
+  try {
+    const searchtext = req.query.searchtext;
+    console.log(searchtext);
+    PostsData.find({
+      PostsName: { $regex: new RegExp(searchtext, "i") },
+    })
+      .then((documents) => {
+        if (documents) {
+          res.status(200).json({
+            message: "tips fetched successfully!",
+            Data: documents,
+          });
+        } else {
+          res.status(404).json({ message: "tips not found!" });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(500).json({
+          message: "Fetching Categpry failed!",
+        });
+      });
+  } catch (e) {}
 };

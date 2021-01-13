@@ -9,5 +9,5 @@ const PostsSchema = mongoose.Schema({
   ModifiedBy: { type: String },
   WhenModified: { type: Date },
 });
-
+PostsSchema.index({ PostsName: "text" });
 module.exports = mongoose.model("PostsData", PostsSchema);

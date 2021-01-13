@@ -6,7 +6,7 @@ router.post("/add", membersController.insertMember);
 
 router.get("", membersController.getAllMembers);
 
-// router.get("/getActiveBlogs", eventsController.getActiveBlog);
+router.get("/getActiveMembers", membersController.getActiveMembers);
 
 // router.get("/getMostViewedBlog", eventsController.getMostViewedBlog);
 

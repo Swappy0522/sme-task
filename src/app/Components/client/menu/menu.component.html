@@ -63,15 +63,18 @@
         <li><a href="gallary">Gallery</a></li>
       </ul>
       <div class="dvSearch">
-        <div class="clsSearchPanel">
-          <input
-            type="text"
-            class="clsSearch"
-            #box
-            placeholder="Product title, brand etc."
-            (keyup.enter)="search(box.value)"
-          />
-          <button type="button" (click)="search(box.value)">Search</button>
+        <div class="dvSearchArea">
+          <div class="clsSearchPanel">
+            <input
+              type="text"
+              class="clsSearch"
+              #box
+              placeholder="Product title, brand etc."
+              (keyup.enter)="search(box.value)"
+            />
+            <button type="button" (click)="search(box.value)">Search</button>
+          </div>
+          <div class="clsSearchText">Searching in all</div>
         </div>
       </div>
     </nav>

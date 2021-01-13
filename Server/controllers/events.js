@@ -126,8 +126,8 @@ exports.getSingleEvent = (req, res, next) => {
     });
 };
 
-exports.getActiveBlog = (req, res, next) => {
-  const blogData = BlogData.find({ IsActive: true }).sort({ WhenEntered: -1 });
+exports.getActiveEvents = (req, res, next) => {
+  const blogData = EventData.find({ IsActive: true }).sort({ WhenEntered: -1 });
   const pageSize = +req.query.pagesize;
   const currentPage = +req.query.currentpage;
   if (pageSize && currentPage) {
@@ -138,12 +138,12 @@ exports.getActiveBlog = (req, res, next) => {
     .populate("CityID")
     .then((documents) => {
       fetchedData = documents;
-      return BlogData.find({ IsActive: true }).countDocuments();
+      return EventData.find({ IsActive: true }).countDocuments();
     })
     .then((count) => {
       res.status(200).json({
         message: "Blogs fetched successfully!",
-        blogData: fetchedData,
+        Data: fetchedData,
         maxData: count,
       });
     })

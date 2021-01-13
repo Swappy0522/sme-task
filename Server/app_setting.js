@@ -16,23 +16,6 @@ const PostsRoutes = require("./routes/posts");
 
 const app = express();
 
-// mongoose
-//   .connect(
-//     "mongodb+srv://swapnil:" +
-//       process.env.MONGO_ATLAS_PW +
-//       "@cluster0.r1ndr.mongodb.net/travellerStoriesdb",
-//     { useNewUrlParser: true, useUnifiedTopology: true }
-//   )
-//   .then(() => {
-//     console.log("Connected to database!");
-//   })
-//   .catch(() => {
-//     console.log("Connection failed!");
-//   });
-
-//MyM0ng0DBPassw0rd
-//mongodb+srv://swapnil:M7M0n90D8P@zzw0rd@cluster0.r1ndr.mongodb.net/travellerStoriesdb
-
 mongoose
   .connect(
     "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB&ssl=false",

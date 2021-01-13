@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { EventService } from 'src/app/Services/events/event.service';
+//import { EventData } from 'src/app/Services/events/events.data.model';
+import { MemberService } from 'src/app/Services/members/members.service';
+//import { MembersData } from 'src/app/Services/members/members.data.model';
+import { PostsService } from 'src/app/Services/posts/posts.service';
+//import { PostsData } from 'src/app/Services/posts/posts.data.model';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +14,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  private postsSub: Subscription;
+  private eventsSub: Subscription;
+  private membersSub: Subscription;
+
+  public postList = [];
+  public eventList = [];
+  public memberList = [];
+
   event_list = [
     {
       event: ' Event 1',
@@ -78,7 +94,39 @@ export class HomeComponent implements OnInit {
     (event) =>
       event.eventStartDate >= new Date() && event.eventEndingDate <= new Date()
   );
-  constructor() {}
+  constructor(
+    public postService: PostsService,
+    public eventService: EventService,
+    public memberService: MemberService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadPosts();
+    this.loadEvents();
+    this.loadMember();
+  }
+
+  loadPosts() {
+    this.postService.getActiveCategoryListdb();
+    this.postsSub = this.postService
+      .getCategoryUpdateListener()
+      .subscribe((result) => {
+        console.log(result);
+        this.postList = result.Data;
+      });
+  }
+
+  loadEvents() {
+    this.eventService.getActiveEventsListdb().subscribe((result) => {
+      console.log(result);
+      this.eventList = result.Data;
+    });
+  }
+
+  loadMember() {
+    this.memberService.getActiveMemberListdb().subscribe((result) => {
+      console.log(result);
+      this.memberList = result.Data;
+    });
+  }
 }

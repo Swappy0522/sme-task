@@ -44,15 +44,10 @@ export class EventService {
       });
   }
 
-  getActiveCategoryListdb() {
-    this.http
-      .get<{ message: string; Data: any }>(BACKEND_URL + '/getActiveCategories')
-      .subscribe((transformedPostData) => {
-        this.categoryData = transformedPostData.Data;
-        this.categoryDataUpdated.next({
-          Data: [...this.categoryData],
-        });
-      });
+  getActiveEventsListdb() {
+    return this.http.get<{ message: string; Data: any }>(
+      BACKEND_URL + '/getActiveEvents'
+    );
   }
 
   getSingleCourseListdb(id: string) {

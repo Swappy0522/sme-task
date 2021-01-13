@@ -4,9 +4,11 @@ const router = express.Router();
 
 router.post("/add", postsController.insertPosts);
 
-router.get("", postsController.getAllPosts);
+router.get("/search", postsController.searchComponentsByProject);
 
-// router.get("/getActiveBlogs", eventsController.getActiveBlog);
+router.get("/getActivePosts", postsController.getActivePosts);
+
+router.get("/", postsController.getAllPosts);
 
 // router.get("/getMostViewedBlog", eventsController.getMostViewedBlog);
 

@@ -47,7 +47,7 @@ export class PostsService {
 
   getActiveCategoryListdb() {
     this.http
-      .get<{ message: string; Data: any }>(BACKEND_URL + '/getActive')
+      .get<{ message: string; Data: any }>(BACKEND_URL + '/getActivePosts')
       .subscribe((transformedPostData) => {
         this.categoryData = transformedPostData.Data;
         this.categoryDataUpdated.next({
@@ -92,5 +92,12 @@ export class PostsService {
       WhenModified: new Date(),
     };
     return this.http.post(BACKEND_URL + '/updateStatus' + '/' + id, data);
+  }
+
+  getPostByText(SearchText: string) {
+    const query = `?searchtext=${SearchText}`;
+    return this.http.get<{ message: string; Data: PostsData }>(
+      BACKEND_URL + '/search' + query
+    );
   }
 }

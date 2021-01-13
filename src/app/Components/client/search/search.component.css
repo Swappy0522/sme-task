@@ -1,0 +1,22 @@
+.clsContent {
+  margin-top: 215px;
+}
+
+.clsPosts {
+  box-shadow: 0px 0px 9px #d3d0d0;
+  padding: 13px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.clsPostName {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.noRes {
+  font-size: 18px;
+  text-align: center;
+  padding-top: 50px;
+  margin-bottom: 30px;
+}

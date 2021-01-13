@@ -5,6 +5,7 @@ import { MembersComponent } from './Components/admin/members/members.component';
 import { PostsComponent } from './Components/admin/posts/posts.component';
 import { DefaultComponent } from './Components/client/default/default.component';
 import { HomeComponent } from './Components/client/home/home.component';
+import { SearchComponent } from './Components/client/search/search.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'posts',
     component: PostsComponent,
+  },
+
+  {
+    path: 'search/:search',
+    component: SearchComponent,
   },
   { path: '**', component: DefaultComponent },
 ];

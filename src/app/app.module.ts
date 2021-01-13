@@ -17,6 +17,7 @@ import { MenuComponent } from './Components/client/menu/menu.component';
 import { FooterComponent } from './Components/client/footer/footer.component';
 import { DefaultComponent } from './Components/client/default/default.component';
 import { NavbarComponent } from './Components/admin/navbar/navbar.component';
+import { SearchComponent } from './Components/client/search/search.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NavbarComponent } from './Components/admin/navbar/navbar.component';
     FooterComponent,
     DefaultComponent,
     NavbarComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

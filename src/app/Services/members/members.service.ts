@@ -34,25 +34,13 @@ export class MemberService {
   }
 
   getCategoryListdb() {
-    this.http
-      .get<{ message: string; Data: any }>(BACKEND_URL)
-      .subscribe((transformedPostData) => {
-        this.categoryData = transformedPostData.Data;
-        this.categoryDataUpdated.next({
-          Data: [...this.categoryData],
-        });
-      });
+    this.http.get<{ message: string; Data: any }>(BACKEND_URL);
   }
 
-  getActiveCategoryListdb() {
-    this.http
-      .get<{ message: string; Data: any }>(BACKEND_URL + '/getActive')
-      .subscribe((transformedPostData) => {
-        this.categoryData = transformedPostData.Data;
-        this.categoryDataUpdated.next({
-          Data: [...this.categoryData],
-        });
-      });
+  getActiveMemberListdb() {
+    return this.http.get<{ message: string; Data: any }>(
+      BACKEND_URL + '/getActiveMembers'
+    );
   }
 
   getSingleCourseListdb(id: string) {
